@@ -1,0 +1,24 @@
+{
+  "name": "e-term",
+  "version": "0.1.0",
+  "description": "just-add-water javascript terminal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aleksandr-JS-Developer/e-term.git"
+  },
+  "keywords": [
+    "js-term",
+    "term",
+    "client-side-term"
+  ],
+  "author": "alex-js-dev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Aleksandr-JS-Developer/e-term/issues"
+  },
+  "homepage": "https://github.com/Aleksandr-JS-Developer/e-term#readme"
+}
