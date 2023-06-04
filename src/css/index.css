@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+
+input {
+  padding: 4px;
+  color: #fff;
+}
+
+body.production {
+  background: linear-gradient(222deg, #fde65c 0%, #e28edd 50%, #54f7d3 100%);
+  /* text-shadow: 1px 1px 1px #000; */
+}
+
+@media (max-width: 600px) {
+  body {
+    overflow-x: scroll;
+  }
+}
+
+input,
+input:active,
+input:focus,
+input:hover {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.rez {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-width: 570px;
+  height: 100vh;
+  margin: 0 7px;
+}
+
+.eos-commandline {
+  letter-spacing: 1px;
+  position: relative;
+  padding: 7px;
+  background-color: #9b9b96;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 0.9em;
+  border-radius: 12px;
+  width: calc(100% - 34px);
+  height: calc(100vh - 34px);
+  min-width: 570px;
+  min-height: 130px;
+  max-width: 1000px;
+  max-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  -webkit-box-shadow: 0px 3px 13px -6px rgba(0, 0, 0, 0.94);
+  -moz-box-shadow: 0px 3px 13px -6px rgba(0, 0, 0, 0.94);
+  box-shadow: 0px 3px 13px -6px rgba(0, 0, 0, 0.94);
+}
+
+body.production .eos-commandline {
+  background-color: #000;
+}
+
+.eos-commandline-output {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+
+  font-family: 'Roboto Mono', monospace;
+}
+.eos-commandline-output::-webkit-scrollbar {
+  display: none;
+}
+
+.eos-commandline-input-input {
+  width: 100%;
+}
+
+.eos-commandline-input {
+  height: 20px;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 0px;
+}
+
+.eos-commandline-background {
+  letter-spacing: -1px;
+  position: absolute;
+  z-index: 0;
+  width: 545px;
+  height: 89px;
+  left: calc(50% - 273px);
+  top: calc(50% - 44px);
+  color: #444;
+  opacity: 0.4;
+}
+
+.eos-commandline-input-user {
+  padding: 4px 0;
+  color: #a6d626;
+}
+
+.eos-commandline-input-user.dialog-text {
+  padding: 4px 0;
+  color: #fff;
+}
+
+.eos-commandline-input-user-dollar {
+  height: 100%;
+  line-height: 20px;
+  color: #f65bff;
+}
