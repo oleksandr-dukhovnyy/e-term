@@ -23,7 +23,6 @@
     "url": "git+https://github.com/Aleksandr-JS-Developer/e-term.git"
   },
   "author": "alex-js-dev",
-  "private": true,
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Aleksandr-JS-Developer/e-term/issues"
