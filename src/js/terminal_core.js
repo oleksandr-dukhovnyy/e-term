@@ -1,3 +1,4 @@
+import '../css/index.scss';
 import commandParser from './commandParser.js';
 import createTemplate from './createTemplate.js';
 import flagController from './flagController.js';
@@ -14,16 +15,16 @@ const getFreeTermId = (() => {
   return () => id++;
 })();
 
-class Terminal {
+export class Terminal {
   constructor(
     containSelector,
     commands = {},
     {
-      userName = '',
+      userName = 'user',
       exec: execAsJSByDefault = false,
       fillParent,
       rounded = true,
-    }
+    } = {}
   ) {
     this.node = document.querySelector(containSelector);
 

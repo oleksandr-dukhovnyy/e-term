@@ -2,13 +2,16 @@
   "name": "e-term",
   "version": "1.0.0",
   "description": "just-add-water javascript terminal",
-  "main": "src/index.js",
+  "main": "dist/terminal.js",
   "scripts": {
     "dev": "webpack --watch",
     "build": "webpack",
-    "build_and_deploy": "bash deploy.sh",
-    "release": "release.sh",
     "test_core": "jest --testPathPattern=src/tests/core"
+  },
+  "imports": {
+    ".": "./dist/terminal.js",
+    "css": "./dist/terminal.css",
+    "ico": "./dist/favicon.ico"
   },
   "keywords": [
     "js-term",

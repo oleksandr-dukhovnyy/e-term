@@ -124,7 +124,7 @@ function help({ log, commandLine }, [command = null]) {
         .join('<br />- ')}`,
     });
     log({
-      text: 'you can also type "{color: #e7e24d | help} {color: #4de7e7 | [?command&nbsp;name]}" for details about command [command name]',
+      text: 'you can also type "{color: #e7e24d | help} {color: #4de7e7 | [?command_name]}" for details about command [command_name]',
     });
   }
 }

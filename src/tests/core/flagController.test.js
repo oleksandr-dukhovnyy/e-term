@@ -1,4 +1,4 @@
-import flagController from '../../js/flagController';
+import flagController from '../../js/flagController.js';
 
 const flags = [
   { name: 'color', value: '#f00' },

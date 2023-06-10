@@ -1,5 +1,5 @@
 import Sanitizer from 'purify-html';
-import getColors from './get_colors';
+import getColors from './get_colors.js';
 
 const sanitizer = new Sanitizer(['br']);
 const outputSanitizer = new Sanitizer([
