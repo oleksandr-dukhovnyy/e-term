@@ -1,4 +1,5 @@
 class ETerm {
+  // @ts-ignore
   constructor(
     selector: string,
     commandsList: {
