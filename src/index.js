@@ -1,5 +1,5 @@
-import Terminal from './js/terminal_core.js';
+import Terminal, { terms } from './js/terminal_core.js';
 
-export { Terminal };
+export { Terminal, terms };
 
 export default Terminal;

@@ -12,7 +12,52 @@ npm i e-term --save
 yarn add e-term
 ```
 
-## Usage
+## Types
+
+```typescript
+class ETerm {
+  constructor(
+    selector: string,
+    commandsList: {
+      [key: string]: Command;
+    },
+    Config
+  );
+}
+
+// definitions:
+
+type Command = CommandDescriptor;
+
+interface CommandDescriptor {
+  // command
+  util(api: CommandlineAPI, params: string[]): any;
+
+  // docs
+  schema: CommandSchema;
+}
+
+interface CommandlineAPI {
+  flags: FlagsAPI;
+
+  // exec string as command
+  exec(command: string): void;
+
+  // non-parsed command
+  source: string;
+  commandLine: ETermInstance;
+
+  // log data to screen
+  log(logParams: LogParams): void;
+
+  // start dialog
+  dialog(dialogParams: DialogParams): Promise<string>;
+}
+```
+
+For more types see [src/types.ts](./src/types.ts).
+
+## Example
 
 ```typescript
 import ETerm from 'e-term';
@@ -24,11 +69,13 @@ const term = new ETerm(
 
   // commands
   {
+    // ------
     echo({ log }, params) {
       log({
         text: params.join(' '),
       });
     },
+    // ------
     pss({ dialog, log }) {
       dialog({ text: 'enter password', hideInput: true, defaultValue: '' })
         .then((pass) => {
@@ -49,16 +96,19 @@ const term = new ETerm(
           });
         });
     },
+    // ------
     logRed({ log }) {
       log({
         text: '{color: #f00 | red text}, pure text, {color: red | another text}',
       });
     },
+    // ------
     xssSafe({ log }) {
       log({
         text: '<img src="1" onerror="alert(1)" /> text', // displays only "text" string
       });
     },
+    // ------
     provideDocs: {
       util({ log }) {
         log({
@@ -86,12 +136,16 @@ const term = new ETerm(
         ],
       },
     },
+    // ------
     moreAPI({ flags, exec, source, commandLine }) {
       console.log(flags, exec, source, commandLine);
     },
+    // ------
   }
 );
 
 term.exec('echo param');
-term.log('string to {color: red | log}');
+term.log({
+  text: 'string to {color: red | log}',
+});
 ```
