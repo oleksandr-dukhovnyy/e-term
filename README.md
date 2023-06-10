@@ -15,18 +15,21 @@ yarn add e-term
 ## Usage
 
 ```typescript
-import eTerm from 'e-term';
+import ETerm from 'e-term';
+import 'e-term/styles';
 
-eTerm.init({
-  params: {
-    exec: false
-  },
-  commands: {
-    echo(api: ETerm.Api, params: string[]) {
-      api.log(
-        text: params.join(' ')
-      );
-    },
+const term = new ETerm(
+  // parent node
+  '#term',
+  {
+    // commands
+    echo: {
+      util({ log }, params) {
+        log({
+          text: params.join(' ');
+        });
+      }
+    }
   }
-});
+);
 ```

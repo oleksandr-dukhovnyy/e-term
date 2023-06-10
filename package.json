@@ -1,24 +1,46 @@
 {
   "name": "e-term",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "just-add-water javascript terminal",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Aleksandr-JS-Developer/e-term.git"
+    "dev": "webpack --watch",
+    "build": "webpack",
+    "build_and_deploy": "bash deploy.sh",
+    "release": "release.sh",
+    "test_core": "jest --testPathPattern=src/tests/core"
   },
   "keywords": [
     "js-term",
     "term",
     "client-side-term"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aleksandr-JS-Developer/e-term.git"
+  },
   "author": "alex-js-dev",
+  "private": true,
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Aleksandr-JS-Developer/e-term/issues"
   },
-  "homepage": "https://github.com/Aleksandr-JS-Developer/e-term#readme"
+  "homepage": "https://github.com/Aleksandr-JS-Developer/e-term#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^5.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.5.1",
+    "mini-css-extract-plugin": "^2.7.6",
+    "normalize.css": "^8.0.1",
+    "sass": "^1.63.3",
+    "sass-loader": "^10.4.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "purify-html": "^1.4.9"
+  }
 }

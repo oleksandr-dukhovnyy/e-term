@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+#e-term {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  &,
+  * {
+    box-sizing: border-box;
+    font-weight: 400;
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  input,
+  input:active,
+  input:focus,
+  input:hover {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 4px;
+    color: #fff;
+  }
+
+  .e-commandline {
+    position: relative;
+    padding: 7px;
+    background-color: #000;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    min-width: 420px;
+    min-height: 130px;
+    max-width: 100vw;
+    max-height: 100vh;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    -webkit-box-shadow: 0px 3px 13px -6px rgba(0, 0, 0, 0.94);
+    -moz-box-shadow: 0px 3px 13px -6px rgba(0, 0, 0, 0.94);
+    box-shadow: 0px 3px 13px -6px rgba(0, 0, 0, 0.94);
+
+    &-input {
+      height: 20px;
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      grid-gap: 0px;
+
+      &-input {
+        width: 100%;
+      }
+
+      &-user {
+        padding: 4px 0;
+        color: #a6d626;
+
+        &.dialog-text {
+          padding: 4px 0;
+          color: #fff;
+        }
+
+        &-dollar {
+          user-select: none;
+          height: 100%;
+          line-height: 20px;
+          color: #f65bff;
+        }
+      }
+    }
+
+    &-output {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+      height: 100%;
+      z-index: 2;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      &-space {
+        height: 100%;
+      }
+    }
+
+    &-background {
+      font-family: sans-serif;
+      letter-spacing: -1px;
+      position: absolute;
+      z-index: 0;
+      width: 400px;
+      height: 89px;
+      left: calc(50% - 200px);
+      top: calc(50% - 44px);
+      color: #444;
+      opacity: 0.4;
+      user-select: none;
+    }
+
+    &.rounded {
+      border-radius: 12px;
+    }
+  }
+}
+
+.e-term-background {
+  background: linear-gradient(222deg, #fde65c 0%, #e28edd 50%, #54f7d3 100%);
+  background-repeat: no-repeat;
+
+  @media (max-width: 600px) {
+    & {
+      overflow-x: scroll;
+    }
+  }
+}
