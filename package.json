@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack --watch",
     "build": "webpack",
-    "test_core": "jest --testPathPattern=src/tests/core"
+    "test_core": "jest --testPathPattern=src/tests/core",
+    "ci": "node ./scripts/ci_lib.mjs"
   },
   "exports": {
     ".": "./dist/terminal.js",

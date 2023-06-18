@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" class="e-term-background">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./dist/terminal.css">
+  <script src="./dist/terminal.js"></script>
+  <style>
+    body {
+      height: calc(100vh - 800px);
+      padding: 400px;
+    }
+  </style>
+  <script>
+    const main = () => {
+      const term = new ETerminal.Terminal('#e-term', {
+        echo({ log }, params) {
+          log({
+            text: params
+          });
+        }
+      },
+        {
+          exec: true,
+          fillParent: true
+        }
+      );
+
+      term.log({
+        text: 'welcome {color: #f00 | user}!',
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener('DOMContentLoaded', main);
+    } else {
+      main();
+    }
+  </script>
+</head>
+
+<body>
+  <div id="e-term"></div>
+</body>
+
+</html>
