@@ -73,7 +73,7 @@ export class Terminal {
       getDialog: (name) => dialog.bind(this, name),
     };
 
-    const exec = (command, showRez) => {
+    const exec = async (command, showRez) => {
       if (config.input.showInput) {
         showRez(
           {
@@ -112,8 +112,15 @@ export class Terminal {
         }
 
         try {
-          commandToExec.util(api, parsed.params);
+          const commandRes = commandToExec.util(api, parsed.params);
+
+          if (commandRes instanceof Promise) {
+            this.input.setAttribute('disabled', 'disabled');
+            await commandRes;
+            this.input.removeAttribute('disabled');
+          }
         } catch (err) {
+          this.input.removeAttribute('disabled');
           showRez({
             text: `[command error]: "${err}"`,
             styles: { color: '#f00' },
@@ -132,6 +139,8 @@ export class Terminal {
           styles: { color: '#f00' },
         });
       }
+
+      return Promise.resolve();
     };
 
     const templateAPI = createTemplate({
