@@ -4,7 +4,10 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import path from 'path';
 import fs from 'node:fs';
-const { version } = fs.readFileSync(path.resolve('./package.json'));
+
+const { version } = JSON.parse(
+  fs.readFileSync(path.resolve('./package.json')).toString()
+);
 
 const isDev = process.env.npm_lifecycle_event.includes('dev');
 

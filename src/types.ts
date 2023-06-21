@@ -5,7 +5,7 @@ class ETerm {
     commandsList: {
       [key: string]: Command;
     },
-    Config
+    config: ETermInstanceConfig
   );
 }
 
@@ -136,45 +136,47 @@ interface CommandSchema {
   }>;
 }
 
+interface ETermInstanceConfig {
+  // valueKey: type; // by default
+
+  output: {
+    defaultFontSize: string; // '1em',
+    defaultFontFamily: string; // 'Roboto Mono',
+    defaultColor: string; // '#fff'
+    showArrowByDefault: boolean; // false
+    maxAliveLogRows: number; // 150
+    useInnerText: boolean; // false
+  };
+  input: {
+    showInput: boolean; // false
+    flagMask: [
+      regexp: string, // '^--[a-z]+[:a-z0-9]{0,}?$'
+      flags: string // 'i'
+    ];
+    getFlagName: [
+      regexp: string, // '--|:[a-z0-9]*$'
+      flags: string // 'gi'
+    ];
+    getFlagValue: [
+      regexp: string, // '--[a-z]*:?'
+      flags: string // 'i'
+    ];
+    groupUsingQuotes: boolean; // true
+    quoteForGrouping: string; // "'"
+  };
+  globalConfig: {
+    // lib version
+    version: string;
+  };
+}
+
 interface ETermInstance {
   commands: {
     [key: string]: Command;
   };
 
   // instance configuration
-  config: {
-    // valueKey: type; // by default
-
-    output: {
-      defaultFontSize: string; // '1em',
-      defaultFontFamily: string; // 'Roboto Mono',
-      defaultColor: string; // '#fff'
-      showArrowByDefault: boolean; // false
-      maxAliveLogRows: number; // 150
-      useInnerText: boolean; // false
-    };
-    input: {
-      showInput: boolean; // false
-      flagMask: [
-        regexp: string, // '^--[a-z]+[:a-z0-9]{0,}?$'
-        flags: string // 'i'
-      ];
-      getFlagName: [
-        regexp: string, // '--|:[a-z0-9]*$'
-        flags: string // 'gi'
-      ];
-      getFlagValue: [
-        regexp: string, // '--[a-z]*:?'
-        flags: string // 'i'
-      ];
-      groupUsingQuotes: boolean; // true
-      quoteForGrouping: string; // "'"
-    };
-    globalConfig: {
-      // lib version
-      version: string;
-    };
-  };
+  config: ETermInstanceConfig;
   dialogInputNode: HTMLInputElement;
   dialogTextNode: HTMLDivElement;
 
