@@ -10,4 +10,4 @@ jest.config.cjs
 babel.config.cjs
 .env
 /src/tests/
-imgs/
+/src/imgs/
