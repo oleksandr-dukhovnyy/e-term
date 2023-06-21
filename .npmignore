@@ -8,3 +8,6 @@ tests/
 webpack.config.mjs
 jest.config.cjs
 babel.config.cjs
+.env
+tests/
+imgs/
