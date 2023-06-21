@@ -1,6 +1,6 @@
 {
   "name": "e-term",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "just-add-water javascript terminal",
   "main": "dist/terminal.js",
   "scripts": {
