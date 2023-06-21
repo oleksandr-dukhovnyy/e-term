@@ -1,7 +1,8 @@
 const downloadFile = (data, filename, type) => {
   const file = new Blob([data], {
-    type: type,
+    type,
   });
+
   const a = document.createElement('a');
   const url = URL.createObjectURL(file);
 

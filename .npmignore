@@ -7,3 +7,4 @@ jsconfig.json
 tests/
 webpack.config.mjs
 jest.config.cjs
+babel.config.cjs

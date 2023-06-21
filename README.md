@@ -4,12 +4,26 @@ Just-add-water javascript terminal
 
 ## Installation
 
+### npm
+
 ```bash
 npm i e-term --save
 ```
 
+### yarn
+
 ```bash
 yarn add e-term
+```
+
+### CDN
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/e-term@^1.0.4/dist/terminal.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/e-term@^1.0.4/dist/terminal.css"
+/>
 ```
 
 ## Types
@@ -59,18 +73,32 @@ For more types see [src/types.ts](./src/types.ts).
 
 ## Example
 
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    ...
+  </head>
+
+  <body>
+    <div e-term class="selector"></div>
+  </body>
+</html>
+```
+
 ```typescript
 import ETerm from 'e-term';
 import 'e-term/terminal.css';
 
 const term = new ETerm(
   // parent node
-  '#term',
+  // your parent node must have a "e-term" attribute for styles
+  '.selector',
 
   // commands
   {
     // ------
-    echo({ log }, params) {
+    echo({ log }, params: string[]) {
       log({
         text: params.join(' '),
       });
@@ -137,7 +165,7 @@ const term = new ETerm(
       },
     },
     // ------
-    moreAPI({ flags, exec, source, commandLine }) {
+    moreAPI({ flags, exec, source, commandLine, pickAFile, downloadFile }) {
       console.log(flags, exec, source, commandLine);
     },
     // ------

@@ -36,6 +36,16 @@ interface CommandlineAPI {
 
   // start dialog
   dialog(dialogParams: DialogParams): Promise<string>;
+
+  // pick a file from user filesystem
+  pickAFile(getText?: boolean /* true */): Promise<string | File>;
+
+  // download file to user filesystem
+  downloadFile(
+    file: string | File | Blob | ArrayBuffer,
+    fileName: string,
+    fileMIMEType: string
+  ): void;
 }
 
 interface FlagsAPI {

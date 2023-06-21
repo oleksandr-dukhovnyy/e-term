@@ -4,11 +4,11 @@ const pickAFile = (getText = true) => {
     input.type = 'file';
     input.onchange = (e) => {
       const file = e.target.files[0];
-      const reader = new FileReader();
 
       if (!getText) {
         resolve(file);
       } else {
+        const reader = new FileReader();
         reader.onload = (e) => resolve(e.target.result);
         reader.onerror = (e) => reject(e);
 

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
-#e-term {
+[e-term] {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -111,7 +111,7 @@
   }
 }
 
-.e-term-background {
+[e-term-background] {
   background: linear-gradient(222deg, #fde65c 0%, #e28edd 50%, #54f7d3 100%);
   background-repeat: no-repeat;
 
