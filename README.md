@@ -26,6 +26,23 @@ yarn add e-term
 />
 ```
 
+## Features
+
+| Status icon | Description                                                                                              |
+| ----------- | -------------------------------------------------------------------------------------------------------- |
+| 📄          | Idea. It is not certain that it will be implemented                                                      |
+| 📆          | Scheduled. These changes are planned to be implemented, but work on the implementation has not yet begun |
+| 🚀          | In progress                                                                                              |
+| ✅          | Done                                                                                                     |
+
+| Feauture                              | Status |
+| ------------------------------------- | ------ |
+| Add plugins docs                      | 📆     |
+| Migrate to TypeScript                 | 📆     |
+| Log any HTML code as HTML             | 📆     |
+| Added sanitizer config to term config | 📆     |
+| Add node socket (WebSockets) client   | 📄     |
+
 ## Types
 
 ```typescript
