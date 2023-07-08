@@ -19,10 +19,10 @@ yarn add e-term
 ### CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/e-term@^1.0.4/dist/terminal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/e-term@^1.2.4/dist/terminal.js"></script>
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/e-term@^1.0.4/dist/terminal.css"
+  href="https://cdn.jsdelivr.net/npm/e-term@^1.2.4/dist/terminal.css"
 />
 ```
 
@@ -71,7 +71,7 @@ interface CommandlineAPI {
 
 For more types see [src/types.ts](./src/types.ts).
 
-## Example
+## Example (builder)
 
 ```html
 <!DOCTYPE html>
@@ -176,4 +176,38 @@ term.exec('echo param');
 term.log({
   text: 'string to {color: red | log}',
 });
+```
+
+## Example (CDN)
+
+```html
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/e-term@^1.2.4/dist/terminal.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/e-term@^1.2.4/dist/terminal.css"
+    />
+
+    <script>
+      const main = () => {
+        const term = new ETerminal.Terminal('[e-term]', {
+          echo({ log }, params: string[]) {
+            log({ text: params.join(' ') });
+          },
+        });
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', main);
+      } else {
+        main();
+      }
+    </script>
+  </head>
+
+  <body>
+    <div e-term></div>
+  </body>
+</html>
 ```

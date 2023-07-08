@@ -19,6 +19,8 @@ const logToConsole = (
   span.style.color = config.output.defaultColor;
   span.style.fontSize = config.output.defaultFontSize;
   span.style.fontFamily = config.output.defaultFontFamily;
+  span.style.display = config.output.defaultDisplay;
+  span.style.wordBreak = config.output.defaultWordBreak;
 
   for (const styleName in styles) {
     span.style[styleName] = styles[styleName];

@@ -44,6 +44,8 @@ export class Terminal {
         showArrowByDefault: false,
         maxAliveLogRows: 150,
         useInnerText: false,
+        defaultDisplay: 'block',
+        defaultWordBreak: 'break-all',
       },
       input: {
         showInput: false,
