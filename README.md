@@ -35,13 +35,14 @@ yarn add e-term
 | 🚀          | In progress                                                                                              |
 | ✅          | Done                                                                                                     |
 
-| Feauture                              | Status |
-| ------------------------------------- | ------ |
-| Add plugins docs                      | 📆     |
-| Migrate to TypeScript                 | 📆     |
-| Log any HTML code as HTML             | 📆     |
-| Added sanitizer config to term config | 📆     |
-| Add node socket (WebSockets) client   | 📄     |
+| Feauture                                           | Status |
+| -------------------------------------------------- | ------ |
+| Add plugins docs                                   | 📆     |
+| Migrate to TypeScript                              | 📆     |
+| Log any HTML code as HTML                          | 📆     |
+| Added sanitizer config to term config              | 📆     |
+| Added nested commands support (syntax `{{ ... }}`) | 📆     |
+| Add node socket (WebSockets) client                | 📄     |
 
 ## Types
 
