@@ -22,15 +22,20 @@ function clear({ flags, commandLine }) {
 
 function help({ log, commandLine }, [command = null]) {
   if (command) {
-    const commandObj = commandLine?.commands[command]?.schema;
-
-    if (!commandObj)
+    if (commandLine?.commands[command] === undefined)
       return log({
         text: `Command "${command}" not found`,
       });
 
+    const commandSchema = commandLine?.commands[command]?.schema;
+
+    if (!commandSchema)
+      return log({
+        text: `Schema for command "${command}" is not provided`,
+      });
+
     log({
-      text: commandObj.description || '[description is empty]',
+      text: commandSchema.description || '[description is empty]',
       styles: {
         color: '#39ff2c',
       },
@@ -44,8 +49,8 @@ function help({ log, commandLine }, [command = null]) {
       },
     });
 
-    if (commandObj.params) {
-      commandObj.params.forEach((commandParam, i, arr) => {
+    if (commandSchema.params) {
+      commandSchema.params.forEach((commandParam, i, arr) => {
         log({
           text: `[${commandParam.require ? '' : '?'}${commandParam.name}${
             commandParam.many ? '...' : ''
@@ -64,7 +69,7 @@ function help({ log, commandLine }, [command = null]) {
           styles: {
             paddingLeft: '20px',
             paddingBottom:
-              arr.length - 1 !== i || commandObj.flags ? '20px' : '0',
+              arr.length - 1 !== i || commandSchema.flags ? '20px' : '0',
             display: 'block',
           },
         });
@@ -75,7 +80,7 @@ function help({ log, commandLine }, [command = null]) {
         styles: {
           paddingLeft: '20px',
           display: 'block',
-          paddingBottom: commandObj.flags ? '20px' : '0',
+          paddingBottom: commandSchema.flags ? '20px' : '0',
         },
       });
     }
@@ -88,8 +93,8 @@ function help({ log, commandLine }, [command = null]) {
       },
     });
 
-    if (commandObj.flags) {
-      commandObj.flags.forEach((commandParam, i, arr) => {
+    if (commandSchema.flags) {
+      commandSchema.flags.forEach((commandParam, i, arr) => {
         log({
           text: `[--${commandParam.name}${
             commandParam.valueRequire ? `:${commandParam.valueName}` : ''
